@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: gitlab-config
+  name: gitlab-pv-config
 spec:
   capacity:
     storage: 10Gi
@@ -14,7 +14,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: gitlab-logs
+  name: gitlab-pv-logs
 spec:
   capacity:
     storage: 10Gi
@@ -27,7 +27,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: gitlab-data
+  name: gitlab-pv-data
 spec:
   capacity:
     storage: 10Gi
