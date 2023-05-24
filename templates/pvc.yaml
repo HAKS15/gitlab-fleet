@@ -8,9 +8,6 @@ spec:
   resources:
     requests:
       storage: {{ .Values.persistence.config.storage }}
-    selector:
-      matchLabels:
-        type: gitlab-pv-config
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -22,9 +19,6 @@ spec:
   resources:
     requests:
       storage: {{ .Values.persistence.logs.storage }}
-    selector:
-      matchLabels:
-        type: gitlab-pv-logs
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -36,6 +30,3 @@ spec:
   resources:
     requests:
       storage: {{ .Values.persistence.data.storage }}
-    selector:
-      matchLabels:
-        type: gitlab-pv-data
