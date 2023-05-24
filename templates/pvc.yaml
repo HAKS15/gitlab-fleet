@@ -1,32 +1,41 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: gitlab-pv-config
+  name: gitlab-pvc-config
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: {{ .Values.persistence.config.storage }}
+    selector:
+      matchLabels:
+        type: gitlab-pv-config
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: gitlab-pv-logs
+  name: gitlab-pvc-logs
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: {{ .Values.persistence.logs.storage }}
+    selector:
+      matchLabels:
+        type: gitlab-pv-logs
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: gitlab-pv-data
+  name: gitlab-pvc-data
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: {{ .Values.persistence.data.storage }}
+    selector:
+      matchLabels:
+        type: gitlab-pv-data
