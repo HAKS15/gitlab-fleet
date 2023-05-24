@@ -11,8 +11,8 @@ service:
 
 persistence:
   config:
-    storage: 10Gi
+    storage: 1Gi
   logs:
-    storage: 10Gi
+    storage: 1Gi
   data:
-    storage: 10Gi
+    storage: 1Gi
