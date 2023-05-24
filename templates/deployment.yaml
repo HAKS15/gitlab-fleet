@@ -33,10 +33,10 @@ spec:
       volumes:
         - name: gitlab-config
           persistentVolumeClaim:
-            claimName: {{ template "gitlab.fullname" . }}-config
+            claimName: gitlab-config
         - name: gitlab-logs
           persistentVolumeClaim:
-            claimName: {{ template "gitlab.fullname" . }}-logs
+            claimName: gitlab-logs
         - name: gitlab-data
           persistentVolumeClaim:
-            claimName: {{ template "gitlab.fullname" . }}-data
+            claimName: gitlab-data
