@@ -7,7 +7,7 @@ image:
 service:
   type: NodePort
   httpPort: 8929
-  sshPort: 2224
+  sshPort: 32224
 
 persistence:
   config:
