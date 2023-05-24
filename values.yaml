@@ -1,0 +1,18 @@
+replicaCount: 1
+
+image:
+  repository: gitlab/gitlab-ee
+  tag: latest
+
+service:
+  type: NodePort
+  httpPort: 8929
+  sshPort: 2224
+
+persistence:
+  config:
+    storage: 10Gi
+  logs:
+    storage: 10Gi
+  data:
+    storage: 10Gi

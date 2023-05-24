@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "gitlab.fullname" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: gitlab
+  template:
+    metadata:
+      labels:
+        app: gitlab
+    spec:
+      containers:
+        - name: gitlab
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          ports:
+            - containerPort: 8929
+            - containerPort: 22
+          env:
+            - name: GITLAB_OMNIBUS_CONFIG
+              value: |
+                external_url 'http://gitlab.example.com:8929'
+                gitlab_rails['gitlab_shell_ssh_port'] = 2224
+          volumeMounts:
+            - name: gitlab-config
+              mountPath: /etc/gitlab
+            - name: gitlab-logs
+              mountPath: /var/log/gitlab
+            - name: gitlab-data
+              mountPath: /var/opt/gitlab
+      volumes:
+        - name: gitlab-config
+          persistentVolumeClaim:
+            claimName: {{ template "gitlab.fullname" . }}-config
+        - name: gitlab-logs
+          persistentVolumeClaim:
+            claimName: {{ template "gitlab.fullname" . }}-logs
+        - name: gitlab-data
+          persistentVolumeClaim:
+            claimName: {{ template "gitlab.fullname" . }}-data

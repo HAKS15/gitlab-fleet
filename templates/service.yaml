@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "gitlab.fullname" . }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - name: gitlab-http
+      port: {{ .Values.service.httpPort }}
+      targetPort: {{ .Values.service.httpPort }}
+      nodePort: {{ .Values.service.nodePort }}
+    - name: gitlab-ssh
+      port: {{ .Values.service.sshPort }}
+      targetPort: {{ .Values.service.sshPort }}
+      nodePort: {{ .Values.service.sshPort }}
+  selector:
+    app: gitlab
