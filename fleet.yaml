@@ -1,0 +1,11 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: gitlab
+spec:
+  defaultNamespace: gitlab   # Replace with the desired namespace
+  branch: main
+  url: https://github.com/HAKS15/gitlab-fleet.git
+  paths:
+    - path: folder
+      targetRevision: HEAD
