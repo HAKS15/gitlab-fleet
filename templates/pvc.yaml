@@ -3,6 +3,11 @@ kind: PersistentVolumeClaim
 metadata:
   name: pvc-config
 spec:
+  storageClassName: ebs-sc
+  dataSource:
+    name: git-config-snapshot
+    kind: VolumeSnapshot
+    apiGroup: snapshot.storage.k8s.io
   accessModes:
     - ReadWriteOnce
   resources:
@@ -14,6 +19,11 @@ kind: PersistentVolumeClaim
 metadata:
   name: pvc-logs
 spec:
+  storageClassName: ebs-sc
+  dataSource:
+    name: git-logs-snapshot
+    kind: VolumeSnapshot
+    apiGroup: snapshot.storage.k8s.io
   accessModes:
     - ReadWriteOnce
   resources:
@@ -25,6 +35,11 @@ kind: PersistentVolumeClaim
 metadata:
   name: pvc-data
 spec:
+  storageClassName: ebs-sc
+  dataSource:
+    name: git-data-snapshot
+    kind: VolumeSnapshot
+    apiGroup: snapshot.storage.k8s.io
   accessModes:
     - ReadWriteOnce
   resources:
