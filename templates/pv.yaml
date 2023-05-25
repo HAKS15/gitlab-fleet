@@ -1,27 +1,47 @@
-apiVersion: snapshot.storage.k8s.io/v1beta1
-kind: VolumeSnapshot
+apiVersion: v1
+kind: PersistentVolume
 metadata:
-  name: git-config-snapshot
+  name: gitlab-config-pv
 spec:
-  volumeSnapshotClassName: gitlab-config-snapclass
-  source:
-    persistentVolumeClaimName: ebs-claim
+  accessModes:
+  - ReadWriteOnce
+  awsElasticBlockStore:
+    fsType: xfs
+    volumeID: aws://ap-south-1a/vol-0268f773abc941064
+  capacity:
+    storage: 10Gi
+  persistentVolumeClaimReclaimPolicy: Retain
+  storageClassName: gp2-retain
+  volumeMode: Filesystem
 ---
-apiVersion: snapshot.storage.k8s.io/v1beta1
-kind: VolumeSnapshot
+apiVersion: v1
+kind: PersistentVolume
 metadata:
-  name: git-logs-snapshot
+  name: gitlab-logs-pv
 spec:
-  volumeSnapshotClassName: gitlab-logs-snapclass
-  source:
-    persistentVolumeClaimName: ebs-claim
+  accessModes:
+  - ReadWriteOnce
+  awsElasticBlockStore:
+    fsType: xfs
+    volumeID: aws://ap-south-1a/vol-0d1d6295dccd8c936
+  capacity:
+    storage: 10Gi
+  persistentVolumeClaimReclaimPolicy: Retain
+  storageClassName: gp2-retain
+  volumeMode: Filesystem
 ---
-apiVersion: snapshot.storage.k8s.io/v1beta1
-kind: VolumeSnapshot
+apiVersion: v1
+kind: PersistentVolume
 metadata:
-  name: git-data-snapshot
+  name: gitlab-data-pv
 spec:
-  volumeSnapshotClassName: gitlab-data-snapclass
-  source:
-    persistentVolumeClaimName: ebs-claim
----
+  accessModes:
+  - ReadWriteOnce
+  awsElasticBlockStore:
+    fsType: xfs
+    volumeID: aws://ap-south-1a/vol-0bedeb216c082516a
+  capacity:
+    storage: 10Gi
+  persistentVolumeClaimReclaimPolicy: Retain
+  storageClassName: gp2-retain
+  volumeMode: Filesystem
