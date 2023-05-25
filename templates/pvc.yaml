@@ -34,7 +34,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-data
+  name: gitlab-data-pvc
 spec:
   storageClassName: ebs-sc
   dataSource:
