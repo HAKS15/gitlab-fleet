@@ -1,0 +1,21 @@
+apiVersion: snapshot.storage.k8s.io/v1beta1
+kind: VolumeSnapshotClass
+metadata:
+  name: gitlab-config-snapclass
+driver: ebs.csi.aws.com
+deletionPolicy: Delete
+---
+apiVersion: snapshot.storage.k8s.io/v1beta1
+kind: VolumeSnapshotClass
+metadata:
+  name: gitlab-logs-snapclass
+driver: ebs.csi.aws.com
+deletionPolicy: Delete
+---
+apiVersion: snapshot.storage.k8s.io/v1beta1
+kind: VolumeSnapshotClass
+metadata:
+  name: gitlab-data-snapclass
+driver: ebs.csi.aws.com
+deletionPolicy: Delete
+---
