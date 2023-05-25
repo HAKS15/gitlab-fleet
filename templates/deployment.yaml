@@ -24,19 +24,19 @@ spec:
                 external_url 'http://gitlab.devunifiedplatform.net:8929'
                 gitlab_rails['gitlab_shell_ssh_port'] = 32224
           volumeMounts:
-            - name: gitlab-config
+            - name: gitlab-config-pvc
               mountPath: /etc/gitlab
-            - name: gitlab-logs
+            - name: gitlab-logs-pvc
               mountPath: /var/log/gitlab
-            - name: gitlab-data
+            - name: gitlab-data-pvc
               mountPath: /var/opt/gitlab
       volumes:
-        - name: gitlab-config
+        - name: gitlab-config-pvc
           persistentVolumeClaim:
             claimName: gitlab-config-pvc
-        - name: gitlab-logs
+        - name: gitlab-logs-pvc
           persistentVolumeClaim:
             claimName: gitlab-logs-pvc
-        - name: gitlab-data
+        - name: gitlab-data-pvc
           persistentVolumeClaim:
             claimName: gitlab-data-pvc
