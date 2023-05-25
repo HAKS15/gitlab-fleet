@@ -10,7 +10,7 @@ spec:
     volumeID: aws://ap-south-1a/vol-0268f773abc941064
   capacity:
     storage: 10Gi
-  persistentVolumeClaimReclaimPolicy: Delete
+  persistentVolumeReclaimPolicy: Delete
   storageClassName: gp2-retain
   volumeMode: Filesystem
 ---
@@ -26,7 +26,7 @@ spec:
     volumeID: aws://ap-south-1a/vol-0d1d6295dccd8c936
   capacity:
     storage: 10Gi
-  persistentVolumeClaimReclaimPolicy: Delete
+  persistentVolumeReclaimPolicy: Delete
   storageClassName: gp2-retain
   volumeMode: Filesystem
 ---
@@ -42,6 +42,6 @@ spec:
     volumeID: aws://ap-south-1a/vol-0bedeb216c082516a
   capacity:
     storage: 10Gi
-  persistentVolumeClaimReclaimPolicy: Delete
+  persistentVolumeReclaimPolicy: Delete
   storageClassName: gp2-retain
   volumeMode: Filesystem
