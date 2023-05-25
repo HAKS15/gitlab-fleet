@@ -1,23 +1,21 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-config
+  name: gitlab-config-pvc
 spec:
-  storageClassName: ebs-sc
-  dataSource:
-    name: git-config-snapshot
-    kind: VolumeSnapshot
-    apiGroup: snapshot.storage.k8s.io
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: {{ .Values.persistence.config.storage }}
+  storageClassName: gp2-retain
+  volumeMode: Filesystem
+  volumeName: gitlab-config-pv
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-logs
+  name: gitlab-logs-pvc
 spec:
   storageClassName: ebs-sc
   dataSource:
@@ -29,6 +27,9 @@ spec:
   resources:
     requests:
       storage: {{ .Values.persistence.logs.storage }}
+  storageClassName: gp2-retain
+  volumeMode: Filesystem
+  volumeName: gitlab-logs-pv
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -45,3 +46,6 @@ spec:
   resources:
     requests:
       storage: {{ .Values.persistence.data.storage }}
+  storageClassName: gp2-retain
+  volumeMode: Filesystem
+  volumeName: gitlab-data-pv
