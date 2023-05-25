@@ -41,7 +41,7 @@ spec:
     - ReadWriteOnce
   claimRef:
     namespace: default
-    name: pv-config
+    name: pv-data
   awsElasticBlockStore:
     volumeID: vol-0bedeb216c082516a
     fsType: xfs
