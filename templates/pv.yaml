@@ -7,6 +7,9 @@ spec:
     storage: 10Gi
   accessModes:
     - ReadWriteOnce
+  claimRef:
+    namespace: default
+    name: pv-config
   awsElasticBlockStore:
     volumeID: vol-0268f773abc941064
     fsType: xfs
@@ -20,6 +23,9 @@ spec:
     storage: 10Gi
   accessModes:
     - ReadWriteOnce
+  claimRef:
+    namespace: default
+    name: pv-logs
   awsElasticBlockStore:
     volumeID: vol-0d1d6295dccd8c936
     fsType: xfs
@@ -33,6 +39,9 @@ spec:
     storage: 10Gi
   accessModes:
     - ReadWriteOnce
+  claimRef:
+    namespace: default
+    name: pv-config
   awsElasticBlockStore:
     volumeID: vol-0bedeb216c082516a
     fsType: xfs
